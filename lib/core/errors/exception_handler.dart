@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 import 'package:accounting/core/errors/failures.dart';
 
 class ExceptionHandler {
@@ -44,14 +45,19 @@ class ExceptionHandler {
   }
 
   static Failure _handleGeneralException(dynamic e) {
-    if (e is FormatException) {
+    if (e is HiveError) {
+      return DatabaseFailure( "💾 Hive error: ${e.message}");
+    } else if (e is FormatException) {
       return BadRequestFailure(
           "📄 Data format error! Please check the response format.");
     } else if (e is TypeError) {
       return UnknownFailure("🛑 Type mismatch error! Please contact support.");
     } else if (e is ArgumentError) {
       return BadRequestFailure("⚠️ Invalid argument provided.");
+    } else if (e is Exception || e is Error) {
+      return DatabaseFailure( "💽 Database error: ${e.toString()}");
     }
+
     return UnknownFailure("⚠️ Unexpected error: ${e.toString()}");
   }
 }

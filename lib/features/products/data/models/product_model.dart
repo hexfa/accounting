@@ -11,6 +11,7 @@ class ProductModel extends Product {
   @HiveField(1)
   final String hiveCode;
 
+
   @HiveField(2)
   final double hivePrice;
 

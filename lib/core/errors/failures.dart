@@ -31,6 +31,10 @@ class CacheFailure extends Failure {
   const CacheFailure(super.message);
 }
 
+class DatabaseFailure extends Failure {
+  DatabaseFailure(super.message) ;
+}
+
 class UnknownFailure extends Failure {
   const UnknownFailure(super.message);
 }
