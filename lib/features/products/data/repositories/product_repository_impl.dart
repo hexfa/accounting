@@ -4,7 +4,9 @@ import 'package:accounting/features/products/domain/repositories/product_reposit
 import 'package:dartz/dartz.dart';
 import 'package:accounting/core/errors/failures.dart';
 import 'package:accounting/core/errors/exception_handler.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: ProductRepository)
 class ProductRepositoryImpl extends ProductRepository {
   final ProductLocalDatasource localDatasource;
 
