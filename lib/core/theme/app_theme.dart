@@ -14,7 +14,7 @@ ThemeData getTheme() {
         )
         .copyWith(
           surface: Colors.white,
-          onSurface: Colors.white,
+          onSurface: Colors.black87,
         ),
     primaryColor: AppColors.primaryColor,
     primaryColorLight: Colors.black,

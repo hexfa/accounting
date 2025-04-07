@@ -1,3 +1,4 @@
+import 'package:accounting/features/home/presentation/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:accounting/core/constants/app_strings.dart';
@@ -39,7 +40,13 @@ class AppRouteConfig {
           ),
         ],
       ),
-
+      GoRoute(
+        path: "/${AppRoutePath.home}",
+        name: AppRoutePath.home,
+        builder: (BuildContext context, GoRouterState state) {
+          return const HomePage();
+        },
+      ),
     ],
   );
 

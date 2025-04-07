@@ -1,4 +1,3 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -25,36 +24,34 @@ import 'package:internet_connection_checker/internet_connection_checker.dart'
 import 'package:uuid/uuid.dart' as _i706;
 
 extension GetItInjectableX on _i174.GetIt {
-  // initializes the registration of main-scope dependencies inside of GetIt
+// initializes the registration of main-scope dependencies inside of GetIt
   _i174.GetIt init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) {
-    final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final gh = _i526.GetItHelper(
+      this,
+      environment,
+      environmentFilter,
+    );
     final injectableModule = _$InjectableModule();
     gh.lazySingleton<_i706.Uuid>(() => injectableModule.uuid);
     gh.lazySingleton<_i895.Connectivity>(() => injectableModule.connectivity);
     gh.lazySingleton<_i973.InternetConnectionChecker>(
-      () => injectableModule.internetConnectionChecker,
-    );
+        () => injectableModule.internetConnectionChecker);
     gh.lazySingleton<_i152.NetworkInfoImpl>(() => injectableModule.networkInfo);
     gh.lazySingleton<_i558.FlutterSecureStorage>(
-      () => injectableModule.storage,
-    );
+        () => injectableModule.storage);
     gh.lazySingleton<_i270.SecureStorage>(() => injectableModule.secureStorage);
     gh.lazySingleton<_i361.Dio>(() => injectableModule.dio);
-    gh.lazySingleton<_i152.NetworkInfo>(
-      () => _i152.NetworkInfoImpl(
-        connectivity: gh<_i895.Connectivity>(),
-        internetConnectionChecker: gh<_i973.InternetConnectionChecker>(),
-      ),
-    );
-    gh.factory<_i260.NetworkInfoBloc>(
-      () => _i260.NetworkInfoBloc(
-        networkInfo: gh<_i152.NetworkInfo>(),
-        connectivity: gh<_i895.Connectivity>(),
-      ),
-    );
+    gh.lazySingleton<_i152.NetworkInfo>(() => _i152.NetworkInfoImpl(
+          connectivity: gh<_i895.Connectivity>(),
+          internetConnectionChecker: gh<_i973.InternetConnectionChecker>(),
+        ));
+    gh.factory<_i260.NetworkInfoBloc>(() => _i260.NetworkInfoBloc(
+          networkInfo: gh<_i152.NetworkInfo>(),
+          connectivity: gh<_i895.Connectivity>(),
+        ));
     return this;
   }
 }
