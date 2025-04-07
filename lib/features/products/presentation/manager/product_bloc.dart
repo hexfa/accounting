@@ -7,8 +7,9 @@ import 'package:accounting/features/products/presentation/manager/product_event.
 import 'package:accounting/features/products/presentation/manager/product_state.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
-
+@injectable
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final AddProduct addProduct;
   final GetAllProducts getAllProducts;
