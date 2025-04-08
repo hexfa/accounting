@@ -2,6 +2,8 @@ import 'package:accounting/core/constants/enums/device_screen_type.dart';
 import 'package:accounting/features/menu/presentation/widgets/app_menu.dart';
 import 'package:flutter/material.dart';
 
+import '../../../products/presentation/pages/product_list_screen.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +17,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController _tabController;
 
   final List<Widget> _pages = const [
-    Center(child: Text('محصولات')),
+    ProductsPage(),
     Center(child: Text('سفارشات')),
     Center(child: Text('مشتری‌ها')),
   ];

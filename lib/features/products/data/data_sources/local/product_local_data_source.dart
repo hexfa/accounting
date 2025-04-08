@@ -1,7 +1,8 @@
 import 'package:accounting/features/products/domain/entities/product.dart';
 import 'package:hive/hive.dart';
 import 'package:accounting/features/products/data/models/product_model.dart';
-
+import 'package:injectable/injectable.dart';
+@LazySingleton(as: ProductLocalDatasource)
 class HiveProductLocalDatasource implements ProductLocalDatasource {
   static const String boxName = 'products';
 
