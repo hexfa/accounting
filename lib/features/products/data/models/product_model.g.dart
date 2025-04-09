@@ -19,20 +19,26 @@ class ProductModelAdapter extends TypeAdapter<ProductModel> {
     return ProductModel(
       hiveName: fields[0] as String,
       hiveCode: fields[1] as String,
-      hivePrice: fields[2] as double,
+      hiveQuantity: fields[2] as int,
+      hiveWholesalePrice: fields[3] as double,
+      hiveRetailPrice: fields[4] as double,
     );
   }
 
   @override
   void write(BinaryWriter writer, ProductModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.hiveName)
       ..writeByte(1)
       ..write(obj.hiveCode)
       ..writeByte(2)
-      ..write(obj.hivePrice);
+      ..write(obj.hiveQuantity)
+      ..writeByte(3)
+      ..write(obj.hiveWholesalePrice)
+      ..writeByte(4)
+      ..write(obj.hiveRetailPrice);
   }
 
   @override

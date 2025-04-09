@@ -51,7 +51,7 @@ class _ProductsPageState extends State<ProductsPage> {
                       final product = products[index];
                       return ListTile(
                         title: Text(product.name),
-                        subtitle: Text('کد: ${product.code} - قیمت: ${product.price}'),
+                        subtitle: Text('کد: ${product.code} - قیمت: ${product.wholesalePrice}'),
                         trailing: PopupMenuButton<String>(
                           onSelected: (value) async {
                             if (value == 'edit') {
