@@ -1,4 +1,6 @@
 import 'package:accounting/features/home/presentation/pages/home.dart';
+import 'package:accounting/features/products/domain/entities/product.dart';
+import 'package:accounting/features/products/presentation/pages/add_product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:accounting/core/constants/app_strings.dart';
@@ -10,6 +12,7 @@ class AppRoutePath {
   static const String entryScreen = 'entry';
   static const String splashScreen = 'splash';
   static const String home = 'home';
+  static const String addProduct = 'add-product';
 }
 
 GoRouter? globalGoRouter;
@@ -45,6 +48,14 @@ class AppRouteConfig {
         name: AppRoutePath.home,
         builder: (BuildContext context, GoRouterState state) {
           return const HomePage();
+        },
+      ),
+      GoRoute(
+        path: "/${AppRoutePath.addProduct}",
+        name: AppRoutePath.addProduct,
+        builder: (context, state) {
+          final product = state.extra as Product?;
+          return AddProductPage(productToEdit: product);
         },
       ),
     ],

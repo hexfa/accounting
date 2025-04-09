@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:accounting/core/data/storage_services/secure_storage.dart';
+import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../features/products/data/models/product_model.dart';
 import '../constants/app_strings.dart';
 import '../data/storage_services/shared_prefs_storage_service.dart';
 import '../di/injection.dart';
@@ -23,6 +25,7 @@ class GlobalConfig {
         throw Exception("API_TOKEN is missing in .env file");
       }
       await secureStorage.saveToken(token);
+       Hive.registerAdapter(ProductModelAdapter());
 
     } catch (e) {
       debugPrint("Error during GlobalConfig initialization: $e");

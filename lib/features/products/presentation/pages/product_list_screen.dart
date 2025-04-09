@@ -1,11 +1,25 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:accounting/core/navigation/app_router.dart';
+import 'package:accounting/features/products/domain/entities/product.dart';
 import 'package:accounting/features/products/presentation/manager/product_bloc.dart';
 import 'package:accounting/features/products/presentation/manager/product_event.dart';
 import 'package:accounting/features/products/presentation/manager/product_state.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-class ProductsPage extends StatelessWidget {
+class ProductsPage extends StatefulWidget {
   const ProductsPage({super.key});
+
+  @override
+  State<ProductsPage> createState() => _ProductsPageState();
+}
+
+class _ProductsPageState extends State<ProductsPage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProductBloc>().add(LoadProducts());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +43,9 @@ class ProductsPage extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is ProductLoaded) {
                   final products = state.products;
+                  if (products.isEmpty) {
+                    return const Center(child: Text('محصولی یافت نشد.'));
+                  }
                   return ListView.builder(
                     itemCount: products.length,
                     itemBuilder: (_, index) {
@@ -37,10 +54,15 @@ class ProductsPage extends StatelessWidget {
                         title: Text(product.name),
                         subtitle: Text('کد: ${product.code} - قیمت: ${product.price}'),
                         trailing: PopupMenuButton<String>(
-                          onSelected: (value) {
+                          onSelected: (value) async {
                             if (value == 'edit') {
-                              // برو به صفحه افزودن برای ویرایش
-                              Navigator.pushNamed(context, '/add-product', arguments: product);
+                              final result = await context.pushNamed(
+                                AppRoutePath.addProduct,
+                                extra: product,
+                              );
+                              if (result == true) {
+                                context.read<ProductBloc>().add(LoadProducts());
+                              }
                             } else if (value == 'delete') {
                               context.read<ProductBloc>().add(DeleteProductEvent(product));
                             }
@@ -63,8 +85,11 @@ class ProductsPage extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/add-product');
+        onPressed: () async {
+          final result = await context.pushNamed(AppRoutePath.addProduct);
+          if (result == true) {
+            context.read<ProductBloc>().add(LoadProducts());
+          }
         },
         child: const Icon(Icons.add),
       ),
