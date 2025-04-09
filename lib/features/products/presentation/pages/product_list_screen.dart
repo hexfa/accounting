@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:accounting/core/navigation/app_router.dart';
-import 'package:accounting/features/products/domain/entities/product.dart';
 import 'package:accounting/features/products/presentation/manager/product_bloc.dart';
 import 'package:accounting/features/products/presentation/manager/product_event.dart';
 import 'package:accounting/features/products/presentation/manager/product_state.dart';

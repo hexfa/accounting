@@ -2,7 +2,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:accounting/core/data/storage_services/secure_storage.dart';
-import 'package:accounting/core/di/injection.dart';
 import 'package:accounting/core/shared/utilities/auth_incepters.dart';
 import 'package:accounting/core/shared/utilities/network_info.dart';
 import 'package:injectable/injectable.dart';

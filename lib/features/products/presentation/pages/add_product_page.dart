@@ -47,11 +47,10 @@ class _AddProductPageState extends State<AddProductPage> {
     final bloc = context.read<ProductBloc>();
     final state = bloc.state;
 
-    // فقط اگر state لیست محصولات رو لود کرده بود
     if (state is ProductLoaded) {
       final isDuplicate = state.products.any((p) {
         if (isEditing && p.code == widget.productToEdit!.code) {
-          return false; // اجازه بده اگر همون محصول قبلیه
+          return false;
         }
         return p.code == code;
       });
