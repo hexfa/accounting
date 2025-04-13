@@ -5,7 +5,6 @@ class Customer {
   final String address;
   final String postalCode;
   final String phone;
-
   Customer({
     required this.id,
     required this.firstName,
