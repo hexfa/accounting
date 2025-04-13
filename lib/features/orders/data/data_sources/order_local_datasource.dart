@@ -1,8 +1,8 @@
-import '../../domain/entities/customer_order.dart';
 import 'package:hive/hive.dart';
-import '../models/order_model.dart';
-import 'order_local_datasource.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../domain/entities/customer_order.dart';
+import '../models/order_model.dart';
 
 @LazySingleton(as: OrderLocalDatasource)
 class HiveOrderLocalDatasource implements OrderLocalDatasource {

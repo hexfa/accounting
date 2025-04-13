@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+
 import '../../domain/entities/customer_order.dart';
 
 part 'order_model.g.dart';

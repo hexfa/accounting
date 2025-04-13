@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     super.initState();
     _tabController = TabController(length: _pages.length, vsync: this);
   }
-
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
