@@ -15,14 +15,9 @@ class HiveOrderLocalDatasource implements OrderLocalDatasource {
     return Hive.box<OrderModel>(boxName);
   }
 
-  @override
-  Future<void> addOrder(Order order) async {
-    final box = await _openBox();
-    await box.put(order.id, OrderModel.fromEntity(order));
-  }
 
   @override
-  Future<List<Order>> getOrdersForCustomer(String customerId) async {
+  Future<List<CustomerOrder>> getOrdersForCustomer(String customerId) async {
     final box = await _openBox();
     return box.values
         .where((e) => e.customerId == customerId)
@@ -31,14 +26,23 @@ class HiveOrderLocalDatasource implements OrderLocalDatasource {
   }
 
   @override
+  Future<void> addOrder(CustomerOrder order) async {
+    final box = await _openBox();
+    await box.put(order.id, OrderModel.fromEntity(order));
+  }
+
+
+
+  @override
   Future<void> deleteOrder(String orderId) async {
     final box = await _openBox();
     await box.delete(orderId);
   }
 }
 
+
 abstract class OrderLocalDatasource {
-  Future<void> addOrder(Order order);
-  Future<List<Order>> getOrdersForCustomer(String customerId);
+  Future<void> addOrder(CustomerOrder order);
+  Future<List<CustomerOrder>> getOrdersForCustomer(String customerId);
   Future<void> deleteOrder(String orderId);
 }
