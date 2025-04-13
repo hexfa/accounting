@@ -1,10 +1,10 @@
 import 'package:hive/hive.dart';
-import '../../domain/entities/order.dart';
+import '../../domain/entities/customer_order.dart';
 
 part 'order_model.g.dart';
 
 @HiveType(typeId: 2)
-class OrderModel extends Order {
+class OrderModel extends CustomerOrder {
   @HiveField(0)
   final String hiveId;
 
@@ -39,7 +39,7 @@ class OrderModel extends Order {
     date: hiveDate,
   );
 
-  factory OrderModel.fromEntity(Order order) {
+  factory OrderModel.fromEntity(CustomerOrder order) {
     return OrderModel(
       hiveId: order.id,
       hiveCustomerId: order.customerId,
@@ -50,8 +50,8 @@ class OrderModel extends Order {
     );
   }
 
-  Order toEntity() {
-    return Order(
+  CustomerOrder toEntity() {
+    return CustomerOrder(
       id: hiveId,
       customerId: hiveCustomerId,
       productCode: hiveProductCode,
