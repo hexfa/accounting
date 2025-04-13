@@ -1,9 +1,8 @@
-import '../../domain/entities/customer.dart';
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
+
 import '../../domain/entities/customer.dart';
 import '../models/customer_model.dart';
-import 'customer_local_datasource.dart';
-import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: CustomerLocalDatasource)
 class HiveCustomerLocalDatasource implements CustomerLocalDatasource {
