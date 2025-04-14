@@ -1,4 +1,6 @@
+import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import '../../../../core/errors/failures.dart';
 import '../../../../core/use_cases/base_use_case.dart';
 import '../entities/customer.dart';
 import '../repositories/customer_repository.dart';
@@ -10,7 +12,6 @@ class AddCustomer extends BaseUseCase<void, Customer> {
   AddCustomer(this.repository);
 
   @override
-  Future<void> execute(Customer params) {
+  Future<Either<Failure, void>> execute(Customer params) async {
     return repository.addCustomer(params);
-  }
 }
