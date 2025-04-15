@@ -16,6 +16,4 @@ class GetAllCustomers extends BaseUseCaseNoParams<List<Customer>> {
   Future<Either<Failure, List<Customer>>> execute() {
     return repository.getAllCustomers();
   }
-
-
 }
