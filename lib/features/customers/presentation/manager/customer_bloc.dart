@@ -7,8 +7,6 @@ import 'package:injectable/injectable.dart';
 import 'customer_event.dart';
 import 'customer_state.dart';
 
-import '../../domain/entities/customer.dart';
-
 @injectable
 class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   final AddCustomer addCustomer;

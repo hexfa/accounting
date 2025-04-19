@@ -1,4 +1,5 @@
 import 'package:accounting/core/constants/enums/device_screen_type.dart';
+import 'package:accounting/features/customers/presentation/pages/customers_page.dart';
 import 'package:accounting/features/menu/presentation/widgets/app_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   final List<Widget> _pages = const [
     ProductsPage(),
     Center(child: Text('سفارشات')),
-    Center(child: Text('مشتری‌ها')),
+    CustomersPage(),
   ];
 
   @override
