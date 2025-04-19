@@ -24,6 +24,9 @@ class CustomerModel extends Customer {
   @HiveField(5)
   final String hivePhone;
 
+  @HiveField(6)
+  final DateTime hiveCreatedAt;
+
   CustomerModel({
     required this.hiveId,
     required this.hiveFirstName,
@@ -31,6 +34,7 @@ class CustomerModel extends Customer {
     required this.hiveAddress,
     required this.hivePostalCode,
     required this.hivePhone,
+    required this.hiveCreatedAt,
   }) : super(
     id: hiveId,
     firstName: hiveFirstName,
@@ -38,7 +42,8 @@ class CustomerModel extends Customer {
     address: hiveAddress,
     postalCode: hivePostalCode,
     phone: hivePhone,
-  );
+         createdAt: hiveCreatedAt,
+       );
 
   factory CustomerModel.fromEntity(Customer customer) {
     return CustomerModel(
@@ -48,6 +53,7 @@ class CustomerModel extends Customer {
       hiveAddress: customer.address,
       hivePostalCode: customer.postalCode,
       hivePhone: customer.phone,
+      hiveCreatedAt: customer.createdAt,
     );
   }
 
@@ -59,6 +65,7 @@ class CustomerModel extends Customer {
       address: hiveAddress,
       postalCode: hivePostalCode,
       phone: hivePhone,
+      createdAt: createdAt,
     );
   }
 }

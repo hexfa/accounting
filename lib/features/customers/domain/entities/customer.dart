@@ -5,6 +5,8 @@ class Customer {
   final String address;
   final String postalCode;
   final String phone;
+  final DateTime createdAt;
+
   Customer({
     required this.id,
     required this.firstName,
@@ -12,5 +14,6 @@ class Customer {
     required this.address,
     required this.postalCode,
     required this.phone,
+    required this.createdAt,
   });
 }

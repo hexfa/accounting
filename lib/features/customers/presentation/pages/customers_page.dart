@@ -5,58 +5,114 @@ import '../manager/customer_bloc.dart';
 import '../manager/customer_event.dart';
 import '../manager/customer_state.dart';
 
-class CustomersPage extends StatelessWidget {
+class CustomersPage extends StatefulWidget {
   const CustomersPage({super.key});
+
+  @override
+  State<CustomersPage> createState() => _CustomersPageState();
+}
+
+class _CustomersPageState extends State<CustomersPage> {
+  String searchQuery = '';
+  bool sortDescending = true; // جدیدترین اول
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<CustomerBloc>().add(LoadCustomersEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('👥 مشتری‌ها')),
-      body: BlocBuilder<CustomerBloc, CustomerState>(
-        builder: (context, state) {
-          if (state is CustomerLoading) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is CustomerLoaded) {
-            final customers = state.customers;
-            if (customers.isEmpty) {
-              return const Center(child: Text('هیچ مشتری ثبت نشده است.'));
-            }
+      appBar: AppBar(
+        title: const Text('👥 مشتری‌ها'),
+        actions: [
+          IconButton(
+            icon: Icon(sortDescending ? Icons.arrow_downward : Icons.arrow_upward),
+            tooltip: sortDescending ? 'مرتب‌سازی جدیدترین' : 'مرتب‌سازی قدیمی‌ترین',
+            onPressed: () {
+              setState(() {
+                sortDescending = !sortDescending;
+              });
+            },
+          )
+        ],
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: TextField(
+              decoration: const InputDecoration(
+                labelText: 'جستجو بر اساس نام',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search),
+              ),
+              onChanged: (value) => setState(() => searchQuery = value.toLowerCase()),
+            ),
+          ),
+          Expanded(
+            child: BlocBuilder<CustomerBloc, CustomerState>(
+              builder: (context, state) {
+                if (state is CustomerLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (state is CustomerLoaded) {
+                  List<Customer> filtered = state.customers
+                      .where((c) =>
+                  c.firstName.toLowerCase().contains(searchQuery) ||
+                      c.lastName.toLowerCase().contains(searchQuery))
+                      .toList();
 
-            return ListView.builder(
-              itemCount: customers.length,
-              itemBuilder: (context, index) {
-                final customer = customers[index];
-                return ListTile(
-                  title: Text('${customer.firstName} ${customer.lastName}'),
-                  subtitle: Text('📞 ${customer.phone}'),
-                  onTap: () {
-                    // TODO: رفتن به صفحه جزئیات مشتری
-                  },
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.edit, color: Colors.blue),
-                        onPressed: () {
-                          // TODO: رفتن به صفحه ویرایش مشتری
+                  // فرض بر اینه که ترتیب ورود در دیتابیس ترتیب زمانیه
+                  if (sortDescending) {
+                    filtered = filtered.reversed.toList();
+                  }
+
+                  if (filtered.isEmpty) {
+                    return const Center(child: Text('نتیجه‌ای یافت نشد.'));
+                  }
+
+                  return ListView.builder(
+                    itemCount: filtered.length,
+                    itemBuilder: (context, index) {
+                      final customer = filtered[index];
+                      return ListTile(
+                        title: Text('${customer.firstName} ${customer.lastName}'),
+                        subtitle: Text('📞 ${customer.phone}'),
+                        onTap: () {
+                          // TODO: نمایش جزئیات مشتری
                         },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.red),
-                        onPressed: () {
-                          context.read<CustomerBloc>().add(DeleteCustomerEvent(customer.id));
-                        },
-                      ),
-                    ],
-                  ),
-                );
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.edit, color: Colors.blue),
+                              onPressed: () {
+                                // TODO: رفتن به صفحه ویرایش
+                              },
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.delete, color: Colors.red),
+                              onPressed: () {
+                                context
+                                    .read<CustomerBloc>()
+                                    .add(DeleteCustomerEvent(customer.id));
+                              },
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                } else if (state is CustomerError) {
+                  return Center(child: Text(state.message));
+                }
+                return const SizedBox();
               },
-            );
-          } else if (state is CustomerError) {
-            return Center(child: Text(state.message));
-          }
-          return const SizedBox();
-        },
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
