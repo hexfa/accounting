@@ -4,6 +4,9 @@ import '../../domain/entities/customer.dart';
 import '../manager/customer_bloc.dart';
 import '../manager/customer_event.dart';
 import '../manager/customer_state.dart';
+import 'package:go_router/go_router.dart';
+import 'package:accounting/core/navigation/app_router.dart';
+
 
 class CustomersPage extends StatefulWidget {
   const CustomersPage({super.key});
@@ -116,7 +119,7 @@ class _CustomersPageState extends State<CustomersPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // TODO: رفتن به صفحه افزودن مشتری
+          context.pushNamed(AppRoutePath.addCustomer); // ← مسیر روتر
         },
         child: const Icon(Icons.add),
       ),

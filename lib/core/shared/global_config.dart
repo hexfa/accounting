@@ -1,3 +1,5 @@
+import 'package:accounting/features/customers/data/models/customer_model.dart';
+import 'package:accounting/features/orders/data/models/order_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:accounting/core/data/storage_services/secure_storage.dart';
@@ -26,6 +28,8 @@ class GlobalConfig {
       }
       await secureStorage.saveToken(token);
        Hive.registerAdapter(ProductModelAdapter());
+       Hive.registerAdapter(CustomerModelAdapter());
+       Hive.registerAdapter(OrderModelAdapter());
 
     } catch (e) {
       debugPrint("Error during GlobalConfig initialization: $e");

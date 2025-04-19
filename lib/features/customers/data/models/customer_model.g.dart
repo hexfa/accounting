@@ -23,13 +23,14 @@ class CustomerModelAdapter extends TypeAdapter<CustomerModel> {
       hiveAddress: fields[3] as String,
       hivePostalCode: fields[4] as String,
       hivePhone: fields[5] as String,
+      hiveCreatedAt: fields[6] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, CustomerModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.hiveId)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class CustomerModelAdapter extends TypeAdapter<CustomerModel> {
       ..writeByte(4)
       ..write(obj.hivePostalCode)
       ..writeByte(5)
-      ..write(obj.hivePhone);
+      ..write(obj.hivePhone)
+      ..writeByte(6)
+      ..write(obj.hiveCreatedAt);
   }
 
   @override
