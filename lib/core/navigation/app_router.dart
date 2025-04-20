@@ -1,4 +1,5 @@
 import 'package:accounting/features/customers/presentation/pages/add_customer_page.dart';
+import 'package:accounting/features/customers/presentation/pages/customer_detail_page.dart';
 import 'package:accounting/features/home/presentation/pages/home.dart';
 import 'package:accounting/features/products/domain/entities/product.dart';
 import 'package:accounting/features/products/presentation/pages/add_product_page.dart';
@@ -15,6 +16,7 @@ class AppRoutePath {
   static const String home = 'home';
   static const String addProduct = 'add-product';
   static const String addCustomer = 'add-customer';
+  static const String customerDetail = 'customer-detail';
 
 }
 
@@ -51,6 +53,14 @@ class AppRouteConfig {
         name: AppRoutePath.home,
         builder: (BuildContext context, GoRouterState state) {
           return const HomePage();
+        },
+      ),
+      GoRoute(
+        path: '/${AppRoutePath.customerDetail}/:id',
+        name: AppRoutePath.customerDetail,
+        builder: (context, state) {
+          final customerId = state.pathParameters['id']!;
+          return CustomerDetailPage(customerId: customerId);
         },
       ),
       GoRoute(

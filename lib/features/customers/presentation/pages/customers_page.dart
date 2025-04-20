@@ -84,7 +84,7 @@ class _CustomersPageState extends State<CustomersPage> {
                         title: Text('${customer.firstName} ${customer.lastName}'),
                         subtitle: Text('📞 ${customer.phone}'),
                         onTap: () {
-                          // TODO: نمایش جزئیات مشتری
+                          context.pushNamed(AppRoutePath.customerDetail, pathParameters: {'id': customer.id});
                         },
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
