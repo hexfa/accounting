@@ -11,6 +11,7 @@ class CustomerDetailPage extends StatelessWidget {
 
   const CustomerDetailPage({super.key, required this.customerId});
 
+
   @override
   Widget build(BuildContext context) {
     final getCustomerById = getIt<GetCustomerById>();
