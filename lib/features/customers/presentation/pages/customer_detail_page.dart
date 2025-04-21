@@ -61,7 +61,6 @@ class CustomerDetailPage extends StatelessWidget {
             const SizedBox(height: 24),
             ElevatedButton.icon(
               onPressed: () {
-                // TODO: ثبت سفارش برای این مشتری
               },
               icon: const Icon(Icons.add_shopping_cart),
               label: const Text('ثبت سفارش جدید'),
