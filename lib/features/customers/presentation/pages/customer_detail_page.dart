@@ -8,8 +8,6 @@ class CustomerDetailPage extends StatelessWidget {
   final String customerId;
 
   const CustomerDetailPage({super.key, required this.customerId});
-
-
   @override
   Widget build(BuildContext context) {
     final getCustomerById = getIt<GetCustomerById>();
