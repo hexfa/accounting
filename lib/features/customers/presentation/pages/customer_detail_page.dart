@@ -15,7 +15,6 @@ class CustomerDetailPage extends StatelessWidget {
       future: getCustomerById.execute(customerId),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
-
         final result = snapshot.data!;
         return result.fold(
               (failure) => Center(child: Text('❗ ${failure.message}')),
