@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import '../../domain/entities/customer.dart';
 class CustomerDetailPage extends StatelessWidget {
   final String customerId;
-
   const CustomerDetailPage({super.key, required this.customerId});
   @override
   Widget build(BuildContext context) {
