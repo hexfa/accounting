@@ -30,7 +30,6 @@ class GlobalConfig {
        Hive.registerAdapter(ProductModelAdapter());
        Hive.registerAdapter(CustomerModelAdapter());
        Hive.registerAdapter(OrderModelAdapter());
-
     } catch (e) {
       debugPrint("Error during GlobalConfig initialization: $e");
       throw Exception("Error during GlobalConfig initialization: $e");
