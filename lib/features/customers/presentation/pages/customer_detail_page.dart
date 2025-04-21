@@ -1,7 +1,6 @@
 import 'package:accounting/core/di/injection.dart';
 import 'package:accounting/features/customers/domain/use_cases/get_customer_by_id.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../domain/entities/customer.dart';
 class CustomerDetailPage extends StatelessWidget {
