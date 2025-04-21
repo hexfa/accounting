@@ -25,7 +25,6 @@ class CustomerDetailPage extends StatelessWidget {
       },
     );
   }
-
   Widget _buildDetails(BuildContext context, Customer customer) {
     return Scaffold(
       appBar: AppBar(
