@@ -67,7 +67,6 @@ class CustomerDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             const Text('🧾 لیست سفارش‌ها:', style: TextStyle(fontWeight: FontWeight.bold)),
-            // TODO: نمایش لیست سفارش‌ها
           ],
         ),
       ),
