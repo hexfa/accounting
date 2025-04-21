@@ -41,7 +41,6 @@ class CustomerDetailPage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.edit),
             onPressed: () {
-              // رفتن به صفحه ویرایش
               context.push('/edit-customer/${customer.id}');
             },
           )
