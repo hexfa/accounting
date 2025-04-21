@@ -86,24 +86,13 @@ class _CustomersPageState extends State<CustomersPage> {
                         onTap: () {
                           context.pushNamed(AppRoutePath.customerDetail, pathParameters: {'id': customer.id});
                         },
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.edit, color: Colors.blue),
-                              onPressed: () {
-                                // TODO: رفتن به صفحه ویرایش
-                              },
-                            ),
-                            IconButton(
-                              icon: const Icon(Icons.delete, color: Colors.red),
-                              onPressed: () {
-                                context
-                                    .read<CustomerBloc>()
-                                    .add(DeleteCustomerEvent(customer.id));
-                              },
-                            ),
-                          ],
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            context
+                                .read<CustomerBloc>()
+                                .add(DeleteCustomerEvent(customer.id));
+                          },
                         ),
                       );
                     },

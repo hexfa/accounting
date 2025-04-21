@@ -1,8 +1,13 @@
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-
 import '../../domain/entities/customer_order.dart';
 import '../models/order_model.dart';
+
+abstract class OrderLocalDatasource {
+  Future<void> addOrder(CustomerOrder order);
+  Future<List<CustomerOrder>> getOrdersForCustomer(String customerId);
+  Future<void> deleteOrder(String orderId);
+}
 
 @LazySingleton(as: OrderLocalDatasource)
 class HiveOrderLocalDatasource implements OrderLocalDatasource {
@@ -15,34 +20,24 @@ class HiveOrderLocalDatasource implements OrderLocalDatasource {
     return Hive.box<OrderModel>(boxName);
   }
 
-
-  @override
-  Future<List<CustomerOrder>> getOrdersForCustomer(String customerId) async {
-    final box = await _openBox();
-    return box.values
-        .where((e) => e.customerId == customerId)
-        .map((e) => e.toEntity())
-        .toList();
-  }
-
   @override
   Future<void> addOrder(CustomerOrder order) async {
     final box = await _openBox();
     await box.put(order.id, OrderModel.fromEntity(order));
   }
 
-
+  @override
+  Future<List<CustomerOrder>> getOrdersForCustomer(String customerId) async {
+    final box = await _openBox();
+    return box.values
+        .where((order) => order.customerId == customerId)
+        .map((e) => e.toEntity())
+        .toList();
+  }
 
   @override
   Future<void> deleteOrder(String orderId) async {
     final box = await _openBox();
     await box.delete(orderId);
   }
-}
-
-
-abstract class OrderLocalDatasource {
-  Future<void> addOrder(CustomerOrder order);
-  Future<List<CustomerOrder>> getOrdersForCustomer(String customerId);
-  Future<void> deleteOrder(String orderId);
 }

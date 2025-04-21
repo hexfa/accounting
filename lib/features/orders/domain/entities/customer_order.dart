@@ -1,17 +1,29 @@
 class CustomerOrder {
   final String id;
   final String customerId;
-  final String productCode;
-  final double unitPrice;
-  final int quantity;
   final DateTime date;
+  final List<OrderItem> items;
 
   CustomerOrder({
     required this.id,
     required this.customerId,
-    required this.productCode,
-    required this.unitPrice,
-    required this.quantity,
     required this.date,
+    required this.items,
   });
+}
+
+class OrderItem {
+  final String productCode;
+  final String productName;
+  final int quantity;
+  final double unitPrice;
+
+  OrderItem({
+    required this.productCode,
+    required this.productName,
+    required this.quantity,
+    required this.unitPrice,
+  });
+
+  double get totalPrice => quantity * unitPrice;
 }

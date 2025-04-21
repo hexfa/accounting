@@ -1,64 +1,46 @@
+import 'package:accounting/features/orders/data/models/order_item_model.dart';
 import 'package:hive/hive.dart';
-
 import '../../domain/entities/customer_order.dart';
 
 part 'order_model.g.dart';
 
 @HiveType(typeId: 2)
-class OrderModel extends CustomerOrder {
+class OrderModel extends HiveObject {
   @HiveField(0)
-  final String hiveId;
+  final String id;
 
   @HiveField(1)
-  final String hiveCustomerId;
+  final String customerId;
 
   @HiveField(2)
-  final String hiveProductCode;
+  final DateTime date;
 
   @HiveField(3)
-  final double hiveUnitPrice;
-
-  @HiveField(4)
-  final int hiveQuantity;
-
-  @HiveField(5)
-  final DateTime hiveDate;
+  final List<OrderItemModel> items;
 
   OrderModel({
-    required this.hiveId,
-    required this.hiveCustomerId,
-    required this.hiveProductCode,
-    required this.hiveUnitPrice,
-    required this.hiveQuantity,
-    required this.hiveDate,
-  }) : super(
-    id: hiveId,
-    customerId: hiveCustomerId,
-    productCode: hiveProductCode,
-    unitPrice: hiveUnitPrice,
-    quantity: hiveQuantity,
-    date: hiveDate,
-  );
+    required this.id,
+    required this.customerId,
+    required this.date,
+    required this.items,
+  });
 
   factory OrderModel.fromEntity(CustomerOrder order) {
     return OrderModel(
-      hiveId: order.id,
-      hiveCustomerId: order.customerId,
-      hiveProductCode: order.productCode,
-      hiveUnitPrice: order.unitPrice,
-      hiveQuantity: order.quantity,
-      hiveDate: order.date,
+      id: order.id,
+      customerId: order.customerId,
+      date: order.date,
+      items: order.items.map(OrderItemModel.fromEntity).toList(),
     );
   }
 
   CustomerOrder toEntity() {
     return CustomerOrder(
-      id: hiveId,
-      customerId: hiveCustomerId,
-      productCode: hiveProductCode,
-      unitPrice: hiveUnitPrice,
-      quantity: hiveQuantity,
-      date: hiveDate,
+      id: id,
+      customerId: customerId,
+      date: date,
+      items: items.map((e) => e.toEntity()).toList(),
     );
   }
 }
+
