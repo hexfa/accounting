@@ -10,7 +10,6 @@ class CustomerDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final getCustomerById = getIt<GetCustomerById>();
-
     return FutureBuilder(
       future: getCustomerById.execute(customerId),
       builder: (context, snapshot) {
