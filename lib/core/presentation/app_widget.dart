@@ -64,7 +64,6 @@ class _AppWidgetState extends State<AppWidget> {
         systemNavigationBarColor: AppColors.primaryColor.withOpacity(0.4),
       ),
     );
-
     return Directionality(
       textDirection: TextDirection.ltr,
       child: LoaderOverlay(
