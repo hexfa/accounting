@@ -34,6 +34,14 @@ import 'package:accounting/features/customers/presentation/manager/customer_bloc
     as _i279;
 import 'package:accounting/features/orders/data/data_sources/order_local_datasource.dart'
     as _i236;
+import 'package:accounting/features/orders/data/repositories/order_repository_impl.dart'
+    as _i290;
+import 'package:accounting/features/orders/domain/repositories/order_repository.dart'
+    as _i407;
+import 'package:accounting/features/orders/domain/use_cases/add_order.dart'
+    as _i488;
+import 'package:accounting/features/orders/domain/use_cases/get_orders_for_customer.dart'
+    as _i1068;
 import 'package:accounting/features/products/data/data_sources/local/product_local_data_source.dart'
     as _i617;
 import 'package:accounting/features/products/data/repositories/product_repository_impl.dart'
@@ -82,6 +90,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => injectableModule.dio);
     gh.lazySingleton<_i236.OrderLocalDatasource>(
         () => _i236.HiveOrderLocalDatasource());
+    gh.lazySingleton<_i407.OrderRepository>(
+        () => _i290.OrderRepositoryImpl(gh<_i236.OrderLocalDatasource>()));
     gh.lazySingleton<_i152.NetworkInfo>(() => _i152.NetworkInfoImpl(
           connectivity: gh<_i895.Connectivity>(),
           internetConnectionChecker: gh<_i973.InternetConnectionChecker>(),
@@ -96,6 +106,10 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.lazySingleton<_i950.CustomerRepository>(() =>
         _i243.CustomerRepositoryImpl(gh<_i903.CustomerLocalDatasource>()));
+    gh.lazySingleton<_i488.AddOrder>(
+        () => _i488.AddOrder(gh<_i407.OrderRepository>()));
+    gh.lazySingleton<_i1068.GetOrdersForCustomer>(
+        () => _i1068.GetOrdersForCustomer(gh<_i407.OrderRepository>()));
     gh.lazySingleton<_i750.ProductRepository>(
         () => _i782.ProductRepositoryImpl(gh<_i617.ProductLocalDatasource>()));
     gh.lazySingleton<_i806.AddProduct>(

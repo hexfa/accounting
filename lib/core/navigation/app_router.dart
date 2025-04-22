@@ -1,3 +1,4 @@
+import 'package:accounting/features/customers/domain/entities/customer.dart';
 import 'package:accounting/features/customers/presentation/pages/add_customer_page.dart';
 import 'package:accounting/features/customers/presentation/pages/customer_detail_page.dart';
 import 'package:accounting/features/home/presentation/pages/home.dart';
@@ -56,11 +57,11 @@ class AppRouteConfig {
         },
       ),
       GoRoute(
-        path: '/${AppRoutePath.customerDetail}/:id',
+        path: '/${AppRoutePath.customerDetail}',
         name: AppRoutePath.customerDetail,
         builder: (context, state) {
-          final customerId = state.pathParameters['id']!;
-          return CustomerDetailPage(customerId: customerId);
+          final customer = state.extra as Customer;
+          return CustomerDetailPage(customer: customer);
         },
       ),
       GoRoute(

@@ -84,8 +84,10 @@ class _CustomersPageState extends State<CustomersPage> {
                         title: Text('${customer.firstName} ${customer.lastName}'),
                         subtitle: Text('📞 ${customer.phone}'),
                         onTap: () {
-                          context.pushNamed(AppRoutePath.customerDetail, pathParameters: {'id': customer.id});
-                        },
+                          context.pushNamed(
+                            AppRoutePath.customerDetail,
+                            extra: customer,
+                          );                        },
                         trailing: IconButton(
                           icon: const Icon(Icons.delete, color: Colors.red),
                           onPressed: () {
@@ -108,7 +110,7 @@ class _CustomersPageState extends State<CustomersPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.pushNamed(AppRoutePath.addCustomer); // ← مسیر روتر
+          context.pushNamed(AppRoutePath.addCustomer);
         },
         child: const Icon(Icons.add),
       ),
