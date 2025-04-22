@@ -17,7 +17,6 @@ class GlobalConfig {
   static Future<void> initConfig() async {
     configureDependencies(Environment.prod);
     storageService = await SharedPrefsStorageService().init();
-
     try {
       await dotenv.load(fileName: "token_holder.env");
       final token = dotenv.env[AppStrings.API_TOKEN];
