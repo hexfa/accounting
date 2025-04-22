@@ -1,3 +1,4 @@
+import 'package:accounting/features/orders/domain/use_cases/delete_order.dart';
 import 'package:accounting/features/orders/domain/use_cases/get_orders_for_customer.dart';
 import 'package:flutter/material.dart';
 import 'package:accounting/features/customers/domain/entities/customer.dart';
@@ -62,6 +63,30 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
                       final order = orders[index];
                       final total = order.items.fold<double>(0, (sum, item) => sum + item.totalPrice);
                       return ExpansionTile(
+                        trailing: IconButton(
+                          icon: const Icon(Icons.delete, color: Colors.red),
+                          tooltip: 'حذف سفارش',
+                          onPressed: () async {
+                            final confirm = await showDialog<bool>(
+                              context: context,
+                              builder: (_) => AlertDialog(
+                                title: const Text("حذف سفارش"),
+                                content: const Text("آیا از حذف این سفارش مطمئن هستید؟"),
+                                actions: [
+                                  TextButton(onPressed: () => Navigator.pop(context, false), child: const Text("خیر")),
+                                  TextButton(onPressed: () => Navigator.pop(context, true), child: const Text("بله")),
+                                ],
+                              ),
+                            );
+                            if (confirm == true) {
+                              await getIt<DeleteOrder>().execute(order.id);
+                              setState(() {
+                                _ordersFuture = _loadOrders(); // رفرش لیست بعد از حذف
+                              });
+                            }
+                          },
+                        ),
+
                         title: Text("🧾 سفارش ${index + 1} - ${DateFormat.yMd().format(order.date)}"),
                         subtitle: Text("تعداد اقلام: ${order.items.length} | مبلغ کل: ${total.toStringAsFixed(0)} تومان"),
                         children: order.items.map((item) {

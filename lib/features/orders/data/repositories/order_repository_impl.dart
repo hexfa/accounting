@@ -20,6 +20,16 @@ class OrderRepositoryImpl implements OrderRepository {
       return Left(UnknownFailure('خطا در ثبت سفارش: $e'));
     }
   }
+  @override
+  Future<Either<Failure, void>> deleteOrder(String orderId) async {
+    try {
+      await datasource.deleteOrder(orderId);
+      return const Right(null);
+    } catch (e) {
+      return Left(UnknownFailure('خطا در حذف سفارش: $e'));
+    }
+  }
+
 
   @override
   Future<Either<Failure, List<CustomerOrder>>> getOrdersForCustomer(String customerId) async {
