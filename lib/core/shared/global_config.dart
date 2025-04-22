@@ -15,7 +15,6 @@ class GlobalConfig {
   static late SharedPrefsStorageService storageService;
   static final secureStorage = getIt<SecureStorage>();
   static Future<void> initConfig() async {
-
     configureDependencies(Environment.prod);
     storageService = await SharedPrefsStorageService().init();
 
