@@ -16,3 +16,4 @@ class AddCustomer extends BaseUseCase<void, Customer> {
     return repository.addCustomer(params);
   }
 }
+
