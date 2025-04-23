@@ -8,11 +8,11 @@ import 'package:intl/intl.dart';
 
 class CustomerDetailPage extends StatefulWidget {
   final Customer customer;
-
   const CustomerDetailPage({super.key, required this.customer});
   @override
   State<CustomerDetailPage> createState() => _CustomerDetailPageState();
 }
+
 class _CustomerDetailPageState extends State<CustomerDetailPage> {
   late Future<List<CustomerOrder>> _ordersFuture;
 
