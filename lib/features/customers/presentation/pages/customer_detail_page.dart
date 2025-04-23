@@ -16,7 +16,6 @@ class CustomerDetailPage extends StatefulWidget {
 
 class _CustomerDetailPageState extends State<CustomerDetailPage> {
   late Future<List<CustomerOrder>> _ordersFuture;
-
   @override
   void initState() {
     super.initState();
