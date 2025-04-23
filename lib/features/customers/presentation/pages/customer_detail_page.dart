@@ -26,7 +26,6 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
     final result = await usecase.execute(widget.customer.id);
     return result.fold((f) => [], (orders) => orders);
   }
-
   @override
   Widget build(BuildContext context) {
     final customer = widget.customer;
