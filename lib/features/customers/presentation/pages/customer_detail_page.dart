@@ -5,7 +5,6 @@ import 'package:accounting/features/customers/domain/entities/customer.dart';
 import 'package:accounting/features/orders/domain/entities/customer_order.dart';
 import 'package:accounting/core/di/injection.dart';
 import 'package:intl/intl.dart';
-
 class CustomerDetailPage extends StatefulWidget {
   final Customer customer;
 
