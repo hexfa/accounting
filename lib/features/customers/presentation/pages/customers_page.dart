@@ -10,7 +10,6 @@ import 'package:accounting/core/navigation/app_router.dart';
 
 class CustomersPage extends StatefulWidget {
   const CustomersPage({super.key});
-
   @override
   State<CustomersPage> createState() => _CustomersPageState();
 }
@@ -18,7 +17,6 @@ class CustomersPage extends StatefulWidget {
 class _CustomersPageState extends State<CustomersPage> {
   String searchQuery = '';
   bool sortDescending = true; // جدیدترین اول
-
   @override
   void initState() {
     super.initState();
