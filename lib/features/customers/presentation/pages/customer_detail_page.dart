@@ -21,7 +21,6 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
     super.initState();
     _ordersFuture = _loadOrders();
   }
-
   Future<List<CustomerOrder>> _loadOrders() async {
     final usecase = getIt<GetOrdersForCustomer>();
     final result = await usecase.execute(widget.customer.id);
