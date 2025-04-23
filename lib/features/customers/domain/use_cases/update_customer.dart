@@ -8,7 +8,6 @@ import '../repositories/customer_repository.dart';
 @lazySingleton
 class UpdateCustomer extends BaseUseCase<void, Customer> {
   final CustomerRepository repository;
-
   UpdateCustomer(this.repository);
   @override
   Future<Either<Failure, void>> execute(Customer customer) {
