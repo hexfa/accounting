@@ -11,7 +11,6 @@ import 'package:injectable/injectable.dart';
 class AddCustomer extends BaseUseCase<void, Customer> {
   final CustomerRepository repository;
   AddCustomer(this.repository);
-
   @override
   Future<Either<Failure, void>> execute(Customer params) async {
     return repository.addCustomer(params);
