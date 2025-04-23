@@ -10,7 +10,6 @@ class UpdateCustomer extends BaseUseCase<void, Customer> {
   final CustomerRepository repository;
 
   UpdateCustomer(this.repository);
-
   @override
   Future<Either<Failure, void>> execute(Customer customer) {
     return repository.updateCustomer(customer);
