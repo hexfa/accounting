@@ -15,5 +15,6 @@ class AddCustomer extends BaseUseCase<void, Customer> {
   Future<Either<Failure, void>> execute(Customer params) async {
     return repository.addCustomer(params);
   }
+
 }
 
