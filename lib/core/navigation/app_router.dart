@@ -18,7 +18,6 @@ class AppRoutePath {
   static const String addProduct = 'add-product';
   static const String addCustomer = 'add-customer';
   static const String customerDetail = 'customer-detail';
-
 }
 
 GoRouter? globalGoRouter;
