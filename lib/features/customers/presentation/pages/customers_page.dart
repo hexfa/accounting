@@ -106,6 +106,7 @@ class _CustomersPageState extends State<CustomersPage> {
           ),
         ],
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.pushNamed(AppRoutePath.addCustomer);
