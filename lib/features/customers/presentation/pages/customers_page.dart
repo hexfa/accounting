@@ -85,7 +85,8 @@ class _CustomersPageState extends State<CustomersPage> {
                           context.pushNamed(
                             AppRoutePath.customerDetail,
                             extra: customer,
-                          );                        },
+                          );
+                          },
                         trailing: IconButton(
                           icon: const Icon(Icons.delete, color: Colors.red),
                           onPressed: () {
