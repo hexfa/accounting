@@ -1,3 +1,7 @@
+import 'package:accounting/core/constants/app_strings.dart';
+import 'package:accounting/core/shared/global_config.dart';
+import 'package:accounting/features/application/presentation/pages/entry.dart';
+import 'package:accounting/features/application/presentation/pages/splash.dart';
 import 'package:accounting/features/customers/domain/entities/customer.dart';
 import 'package:accounting/features/customers/presentation/pages/add_customer_page.dart';
 import 'package:accounting/features/customers/presentation/pages/customer_detail_page.dart';
@@ -6,10 +10,6 @@ import 'package:accounting/features/products/domain/entities/product.dart';
 import 'package:accounting/features/products/presentation/pages/add_product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:accounting/core/constants/app_strings.dart';
-import 'package:accounting/core/shared/global_config.dart';
-import 'package:accounting/features/application/presentation/pages/entry.dart';
-import 'package:accounting/features/application/presentation/pages/splash.dart';
 
 class AppRoutePath {
   static const String entryScreen = 'entry';
