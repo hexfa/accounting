@@ -26,4 +26,19 @@ class OrderItem {
   });
 
   double get totalPrice => quantity * unitPrice;
+
+  OrderItem copyWith({
+    String? productCode,
+    String? productName,
+    int? quantity,
+    double? unitPrice,
+  }) {
+    return OrderItem(
+      productCode: productCode ?? this.productCode,
+      productName: productName ?? this.productName,
+      quantity: quantity ?? this.quantity,
+      unitPrice: unitPrice ?? this.unitPrice,
+    );
+  }
 }
+
