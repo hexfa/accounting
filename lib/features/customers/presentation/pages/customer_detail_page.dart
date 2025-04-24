@@ -40,6 +40,7 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
             Text('👤 ${customer.firstName} ${customer.lastName}', style: Theme.of(context).textTheme.titleLarge),
             Text('📞 ${customer.phone}'),
             Text('🏠 ${customer.address}'),
+
             Text('📮 کد پستی: ${customer.postalCode}'),
             Text('📅 ثبت‌شده در: ${DateFormat.yMd().format(customer.createdAt)}'),
             const Divider(height: 32),

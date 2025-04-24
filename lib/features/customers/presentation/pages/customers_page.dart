@@ -16,13 +16,12 @@ class CustomersPage extends StatefulWidget {
 
 class _CustomersPageState extends State<CustomersPage> {
   String searchQuery = '';
-  bool sortDescending = true; // جدیدترین اول
+  bool sortDescending = true;
   @override
   void initState() {
     super.initState();
     context.read<CustomerBloc>().add(LoadCustomersEvent());
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +64,6 @@ class _CustomersPageState extends State<CustomersPage> {
                       c.lastName.toLowerCase().contains(searchQuery))
                       .toList();
 
-                  // فرض بر اینه که ترتیب ورود در دیتابیس ترتیب زمانیه
                   if (sortDescending) {
                     filtered = filtered.reversed.toList();
                   }
@@ -85,11 +83,13 @@ class _CustomersPageState extends State<CustomersPage> {
                           context.pushNamed(
                             AppRoutePath.customerDetail,
                             extra: customer,
-                          );                        },
+                          );
+                          },
                         trailing: IconButton(
                           icon: const Icon(Icons.delete, color: Colors.red),
                           onPressed: () {
                             context
+
                                 .read<CustomerBloc>()
                                 .add(DeleteCustomerEvent(customer.id));
                           },
@@ -106,6 +106,7 @@ class _CustomersPageState extends State<CustomersPage> {
           ),
         ],
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.pushNamed(AppRoutePath.addCustomer);
