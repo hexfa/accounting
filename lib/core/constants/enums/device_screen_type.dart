@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 enum DeviceScreenType { mobile, tablet, desktop }
-
 DeviceScreenType getDeviceType(BoxConstraints constraints) {
   final width = constraints.maxWidth;
   if (width >= 1000) {
