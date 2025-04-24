@@ -22,7 +22,6 @@ class _CustomersPageState extends State<CustomersPage> {
     super.initState();
     context.read<CustomerBloc>().add(LoadCustomersEvent());
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
