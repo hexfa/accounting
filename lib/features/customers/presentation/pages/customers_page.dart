@@ -65,7 +65,6 @@ class _CustomersPageState extends State<CustomersPage> {
                       c.lastName.toLowerCase().contains(searchQuery))
                       .toList();
 
-                  // فرض بر اینه که ترتیب ورود در دیتابیس ترتیب زمانیه
                   if (sortDescending) {
                     filtered = filtered.reversed.toList();
                   }
