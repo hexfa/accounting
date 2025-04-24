@@ -16,7 +16,7 @@ class CustomersPage extends StatefulWidget {
 
 class _CustomersPageState extends State<CustomersPage> {
   String searchQuery = '';
-  bool sortDescending = true; // جدیدترین اول
+  bool sortDescending = true;
   @override
   void initState() {
     super.initState();
