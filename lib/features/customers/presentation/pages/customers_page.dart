@@ -90,6 +90,7 @@ class _CustomersPageState extends State<CustomersPage> {
                           icon: const Icon(Icons.delete, color: Colors.red),
                           onPressed: () {
                             context
+
                                 .read<CustomerBloc>()
                                 .add(DeleteCustomerEvent(customer.id));
                           },
