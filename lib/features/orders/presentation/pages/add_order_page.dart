@@ -20,7 +20,6 @@ class AddOrderPage extends StatefulWidget {
 
 class _AddOrderPageState extends State<AddOrderPage> {
   final Map<String, TextEditingController> quantityControllers = {};
-
   double calculateTotal(List<Product> products) {
     double total = 0;
     for (var product in products) {
