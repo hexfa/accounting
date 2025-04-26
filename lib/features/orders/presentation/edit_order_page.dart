@@ -30,7 +30,6 @@ class _EditOrderPageState extends State<EditOrderPage> {
   double get total {
     return items.fold(0, (sum, item) => sum + item.totalPrice);
   }
-
   void _submit() async {
     final updatedItems = <OrderItem>[];
     for (var item in items) {
