@@ -1,7 +1,7 @@
+import 'package:accounting/core/di/injection.dart';
+import 'package:accounting/features/orders/domain/entities/customer_order.dart';
 import 'package:accounting/features/orders/domain/use_cases/add_order.dart';
 import 'package:flutter/material.dart';
-import 'package:accounting/features/orders/domain/entities/customer_order.dart';
-import 'package:accounting/core/di/injection.dart';
 
 class EditOrderPage extends StatefulWidget {
   final CustomerOrder order;
