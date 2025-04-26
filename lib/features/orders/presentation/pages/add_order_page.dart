@@ -31,7 +31,6 @@ class _AddOrderPageState extends State<AddOrderPage> {
     }
     return total;
   }
-
   void submit(List<Product> products) async {
     final selectedItems = <OrderItem>[];
 
