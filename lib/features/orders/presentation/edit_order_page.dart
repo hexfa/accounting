@@ -1,6 +1,5 @@
 import 'package:accounting/features/orders/domain/use_cases/add_order.dart';
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
 import 'package:accounting/features/orders/domain/entities/customer_order.dart';
 import 'package:accounting/core/di/injection.dart';
 
