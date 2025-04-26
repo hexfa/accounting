@@ -51,7 +51,6 @@ class _EditOrderPageState extends State<EditOrderPage> {
     await getIt<AddOrder>().execute(updatedOrder); // همون AddOrder برای ویرایش هم استفاده میشه
     Navigator.pop(context);
   }
-
   void _removeItem(OrderItem item) {
     setState(() {
       items.remove(item);
