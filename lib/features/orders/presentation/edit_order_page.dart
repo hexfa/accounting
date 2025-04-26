@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 import 'package:accounting/features/orders/domain/entities/customer_order.dart';
 import 'package:accounting/core/di/injection.dart';
-import 'package:intl/intl.dart';
 
 class EditOrderPage extends StatefulWidget {
   final CustomerOrder order;
