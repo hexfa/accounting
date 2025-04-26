@@ -79,7 +79,6 @@ class AppRouteConfig {
           return EditOrderPage(order: order);
         },
       ),
-
       GoRoute(
         path: "/${AppRoutePath.addProduct}",
         name: AppRoutePath.addProduct,
