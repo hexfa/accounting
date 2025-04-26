@@ -56,7 +56,6 @@ class _EditOrderPageState extends State<EditOrderPage> {
       items.remove(item);
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
