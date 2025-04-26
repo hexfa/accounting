@@ -42,7 +42,6 @@ class _EditOrderPageState extends State<EditOrderPage> {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("حداقل یک محصول باید باقی بماند.")));
       return;
     }
-
     final updatedOrder = CustomerOrder(
       id: widget.order.id,
       customerId: widget.order.customerId,
