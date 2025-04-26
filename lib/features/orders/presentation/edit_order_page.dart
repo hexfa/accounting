@@ -39,7 +39,6 @@ class _EditOrderPageState extends State<EditOrderPage> {
         updatedItems.add(item.copyWith(quantity: qty));
       }
     }
-
     if (updatedItems.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("حداقل یک محصول باید باقی بماند.")));
       return;
