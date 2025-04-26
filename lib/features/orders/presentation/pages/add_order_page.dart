@@ -1,13 +1,13 @@
+import 'package:accounting/core/di/injection.dart';
+import 'package:accounting/features/customers/domain/entities/customer.dart';
+import 'package:accounting/features/orders/domain/entities/customer_order.dart';
 import 'package:accounting/features/orders/domain/use_cases/add_order.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:uuid/uuid.dart';
 import 'package:accounting/features/products/domain/entities/product.dart';
 import 'package:accounting/features/products/presentation/manager/product_bloc.dart';
 import 'package:accounting/features/products/presentation/manager/product_state.dart';
-import 'package:accounting/features/orders/domain/entities/customer_order.dart';
-import 'package:accounting/features/customers/domain/entities/customer.dart';
-import 'package:accounting/core/di/injection.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:uuid/uuid.dart';
 
 class AddOrderPage extends StatefulWidget {
   final Customer customer;
