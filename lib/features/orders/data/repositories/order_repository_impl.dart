@@ -30,6 +30,15 @@ class OrderRepositoryImpl implements OrderRepository {
     }
   }
 
+  @override
+  Future<Either<Failure, List<CustomerOrder>>> getAllOrders() async {
+    try {
+      final orders = await datasource.getAllOrders();
+      return Right(orders);
+    } catch (e) {
+      return Left(UnknownFailure('خطا در دریافت همه سفارش‌ها: $e'));
+    }
+  }
 
   @override
   Future<Either<Failure, List<CustomerOrder>>> getOrdersForCustomer(String customerId) async {

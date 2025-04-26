@@ -7,6 +7,8 @@ abstract class OrderLocalDatasource {
   Future<void> addOrder(CustomerOrder order);
   Future<List<CustomerOrder>> getOrdersForCustomer(String customerId);
   Future<void> deleteOrder(String orderId);
+  Future<List<CustomerOrder>> getAllOrders(); // ✅ اضافه شد
+
 }
 
 @LazySingleton(as: OrderLocalDatasource)
@@ -24,6 +26,13 @@ class HiveOrderLocalDatasource implements OrderLocalDatasource {
   Future<void> addOrder(CustomerOrder order) async {
     final box = await _openBox();
     await box.put(order.id, OrderModel.fromEntity(order));
+  }
+  @override
+  Future<List<CustomerOrder>> getAllOrders() async {
+    final box = await _openBox();
+    return box.values
+        .map((order) => order.toEntity())
+        .toList();
   }
 
   @override
