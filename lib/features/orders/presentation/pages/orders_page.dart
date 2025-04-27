@@ -30,7 +30,6 @@ class _OrdersPageState extends State<OrdersPage> {
     return result.fold((failure) => [], (orders) => orders);
   }
 
-
   void _deleteOrder(String orderId) async {
     await getIt<DeleteOrder>().execute(orderId);
     setState(() {
