@@ -10,7 +10,6 @@ class GetAllOrders extends BaseUseCaseNoParams<List<CustomerOrder>> {
   final OrderRepository repository;
 
   GetAllOrders(this.repository);
-
   @override
   Future<Either<Failure, List<CustomerOrder>>> execute() {
     return repository.getAllOrders();
