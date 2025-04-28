@@ -103,7 +103,6 @@ class AppRouteConfig {
     });
   }
 
-
   static void clearAndNavigate(String path) {
     while (getGoRouter().canPop() == true) {
       getGoRouter().pop();
