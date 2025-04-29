@@ -8,6 +8,7 @@ import 'package:accounting/features/customers/presentation/pages/customer_detail
 import 'package:accounting/features/home/presentation/pages/home.dart';
 import 'package:accounting/features/orders/domain/entities/customer_order.dart';
 import 'package:accounting/features/orders/presentation/edit_order_page.dart';
+import 'package:accounting/features/orders/presentation/pages/add_order_page.dart';
 import 'package:accounting/features/products/domain/entities/product.dart';
 import 'package:accounting/features/products/presentation/pages/add_product_page.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class AppRoutePath {
   static const String splashScreen = 'splash';
   static const String home = 'home';
   static const String addProduct = 'add-product';
+  static const String addOrder = 'add-order';
+
   static const String addCustomer = 'add-customer';
   static const String editOrder = 'edit-order';
   static const String customerDetail = 'customer-detail';
@@ -66,6 +69,15 @@ class AppRouteConfig {
           return CustomerDetailPage(customer: customer);
         },
       ),
+      GoRoute(
+        path: '/${AppRoutePath.addOrder}',
+        name: AppRoutePath.addOrder,
+        builder: (context, state) {
+          final customer = state.extra as Customer;
+          return AddOrderPage(customer: customer);
+        },
+      ),
+
       GoRoute(
         path: '/${AppRoutePath.addCustomer}',
         name: AppRoutePath.addCustomer,

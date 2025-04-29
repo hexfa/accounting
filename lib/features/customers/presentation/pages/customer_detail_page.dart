@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:accounting/features/customers/domain/entities/customer.dart';
 import 'package:accounting/features/orders/domain/entities/customer_order.dart';
 import 'package:accounting/core/di/injection.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+
+import '../../../../core/navigation/app_router.dart';
 
 class CustomerDetailPage extends StatefulWidget {
   final Customer customer;
@@ -31,7 +34,14 @@ class _CustomerDetailPageState extends State<CustomerDetailPage> {
     final customer = widget.customer;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('جزئیات مشتری')),
+      appBar: AppBar(title: const Text('جزئیات مشتری'),actions: [ElevatedButton.icon(
+        onPressed: () {
+          context.pushNamed(AppRoutePath.addOrder, extra: customer);
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('ثبت سفارش جدید'),
+      ),
+      ],),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
