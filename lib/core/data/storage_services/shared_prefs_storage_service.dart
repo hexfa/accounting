@@ -17,6 +17,7 @@ class SharedPrefsStorageService {
   String getStringValue(String key) {
     return _prefs.getString(key) ?? "";
   }
+
   // get String list value
   List<String> getStringListValue(String key) {
     return _prefs.getStringList(key) ?? [];
