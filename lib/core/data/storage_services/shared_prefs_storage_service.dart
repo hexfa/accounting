@@ -28,6 +28,7 @@ class SharedPrefsStorageService {
     await _prefs.setString(key, value);
   }
 
+
   // set String list value
   Future<void> setStringList(String key, List<String> value) async {
     await _prefs.setStringList(key, value);
