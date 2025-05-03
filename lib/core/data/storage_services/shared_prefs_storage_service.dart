@@ -33,7 +33,6 @@ class SharedPrefsStorageService {
   Future<void> setStringList(String key, List<String> value) async {
     await _prefs.setStringList(key, value);
   }
-
   // remove key
   Future<void> removeKey(String key) async {
     await _prefs.remove(key);
