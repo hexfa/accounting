@@ -12,6 +12,7 @@ import '../constants/app_strings.dart';
 import '../data/storage_services/shared_prefs_storage_service.dart';
 import '../di/injection.dart';
 class GlobalConfig {
+
   static late SharedPrefsStorageService storageService;
   static final secureStorage = getIt<SecureStorage>();
   static Future<void> initConfig() async {
