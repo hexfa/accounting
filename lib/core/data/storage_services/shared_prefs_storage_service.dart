@@ -7,7 +7,6 @@ class SharedPrefsStorageService {
     _prefs = await SharedPreferences.getInstance();
     return this;
   }
-
   // get bool value
   bool getBoolValue(String key) {
     return _prefs.getBool(key) ?? false;
@@ -21,6 +20,7 @@ class SharedPrefsStorageService {
   // get String list value
   List<String> getStringListValue(String key) {
     return _prefs.getStringList(key) ?? [];
+
   }
 
   // set String value
