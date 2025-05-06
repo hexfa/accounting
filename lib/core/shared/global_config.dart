@@ -25,7 +25,6 @@ class GlobalConfig {
       }
 
 
-
       await secureStorage.saveToken(token);
        Hive.registerAdapter(ProductModelAdapter());
        Hive.registerAdapter(CustomerModelAdapter());
