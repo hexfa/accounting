@@ -24,7 +24,6 @@ class GlobalConfig {
         throw Exception("API_TOKEN is missing in .env file");
       }
 
-
       await secureStorage.saveToken(token);
        Hive.registerAdapter(ProductModelAdapter());
        Hive.registerAdapter(CustomerModelAdapter());
