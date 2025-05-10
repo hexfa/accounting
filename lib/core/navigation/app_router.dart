@@ -102,7 +102,8 @@ class AppRouteConfig {
     ],
   );
 
-  
+
+
 
   static Future<void> entryFunction() async {
     return Future.delayed(const Duration(seconds: 2), () {
