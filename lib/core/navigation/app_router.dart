@@ -102,12 +102,10 @@ class AppRouteConfig {
     ],
   );
 
-
   static Future<void> entryFunction() async {
     return Future.delayed(const Duration(seconds: 2), () {
       final bool isAppPreviouslyRan = GlobalConfig.storageService
           .getBoolValue(AppStrings.IS_APP_PREVIOUSLY_RAN);
-
       if (isAppPreviouslyRan) {
         AppRouteConfig.router.goNamed(AppRoutePath.home);
       } else {
