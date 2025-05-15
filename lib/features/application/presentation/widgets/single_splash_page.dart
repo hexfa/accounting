@@ -30,12 +30,7 @@ Widget singleSplashPage({
 
 
 
-
         
-
-
-
-
 
 
 
