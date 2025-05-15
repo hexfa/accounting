@@ -31,10 +31,11 @@ Widget singleSplashPage({
 
 
 
-
-
-
         
+
+
+
+
 
 
 
