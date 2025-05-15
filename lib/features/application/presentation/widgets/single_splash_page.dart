@@ -30,6 +30,7 @@ Widget singleSplashPage({
 
 
 
+
         // const SizedBox(height: 10),
         Text(
           splashItem.title,
