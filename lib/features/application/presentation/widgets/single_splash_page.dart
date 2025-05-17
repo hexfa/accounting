@@ -10,7 +10,6 @@ import 'package:accounting/features/application/domain/entities/splash/splash_it
 Widget singleSplashPage({
   required SplashItem splashItem,
 }) {
-
   return Column(
       mainAxisAlignment: kIsWeb? MainAxisAlignment.start: MainAxisAlignment.center,
       crossAxisAlignment:kIsWeb? CrossAxisAlignment.center: CrossAxisAlignment.stretch,
