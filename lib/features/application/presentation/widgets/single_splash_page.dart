@@ -12,6 +12,7 @@ Widget singleSplashPage({
 }) {
 
 
+
   
   return Column(
       mainAxisAlignment: kIsWeb? MainAxisAlignment.start: MainAxisAlignment.center,
