@@ -19,6 +19,7 @@ Widget singleSplashPage({
 
 
 
+  
   return Column(
       mainAxisAlignment: kIsWeb? MainAxisAlignment.start: MainAxisAlignment.center,
       crossAxisAlignment:kIsWeb? CrossAxisAlignment.center: CrossAxisAlignment.stretch,
