@@ -25,8 +25,6 @@ Widget singleSplashPage({
             fontWeight: FontWeight.w600,
           ),
         ),
-        
-
 
         // const SizedBox(height: 10),
         Text(
