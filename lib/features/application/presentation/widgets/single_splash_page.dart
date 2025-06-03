@@ -33,7 +33,8 @@ Widget singleSplashPage({
 
 
 
-        
+
+
 
 
         Text(
