@@ -29,8 +29,7 @@ Widget singleSplashPage({
 
 
 
-
-
+        
 
 
 
