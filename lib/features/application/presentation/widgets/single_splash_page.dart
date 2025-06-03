@@ -31,6 +31,7 @@ Widget singleSplashPage({
 
 
 
+
         Text(
           splashItem.title,
           textAlign: TextAlign.center,
