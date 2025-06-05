@@ -27,9 +27,8 @@ Widget singleSplashPage({
         ),
 
 
-
-
         
+
 
         Text(
           splashItem.title,
