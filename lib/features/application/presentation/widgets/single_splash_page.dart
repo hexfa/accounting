@@ -25,7 +25,6 @@ Widget singleSplashPage({
             fontWeight: FontWeight.w600,
           ),
         ),
-
         Text(
           splashItem.title,
           textAlign: TextAlign.center,
