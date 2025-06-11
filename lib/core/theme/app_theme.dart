@@ -21,19 +21,7 @@ ThemeData getTheme() {
     primaryColorDark: Colors.white,
     disabledColor: AppColors.primarySecondaryBackground,
     scaffoldBackgroundColor: Colors.white,
-    // dialog theme
-    dialogTheme: DialogTheme(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      backgroundColor: Colors.white,
-      titleTextStyle: const TextStyle(
-        color: Colors.black,
-      ),
-      contentTextStyle: const TextStyle(
-        color: Colors.black,
-      ),
-    ),
+
 
     // Bottom sheet theme
     bottomSheetTheme: const BottomSheetThemeData(
@@ -42,14 +30,7 @@ ThemeData getTheme() {
     ),
 
     // card theme
-    cardTheme: CardTheme(
-      color: Colors.white,
-      shadowColor: Colors.grey,
-      elevation: AppSize.s4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppSize.s10),
-      ),
-    ),
+
 
     // button theme
     buttonTheme: const ButtonThemeData(
