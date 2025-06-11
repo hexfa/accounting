@@ -10,6 +10,7 @@ class EntryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
+
       backgroundColor: AppColors.splashBgColor,
       body: Center(
         child: Image.asset(
