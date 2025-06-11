@@ -13,6 +13,7 @@ class EntryScreen extends StatelessWidget {
 
 
 
+
       backgroundColor: AppColors.splashBgColor,
       body: Center(
         child: Image.asset(
