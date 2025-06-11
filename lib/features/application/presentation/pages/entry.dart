@@ -6,6 +6,7 @@ import 'package:accounting/gen/assets.gen.dart';
 class EntryScreen extends StatelessWidget {
   const EntryScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
