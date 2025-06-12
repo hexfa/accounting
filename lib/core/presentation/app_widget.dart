@@ -17,14 +17,12 @@ import '../../core/di/injection.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
-
   @override
   State<AppWidget> createState() => _AppWidgetState();
 }
 
 class _AppWidgetState extends State<AppWidget> {
   late final NetworkInfoBloc networkInfoBloc;
-
   @override
   void initState() {
     super.initState();
