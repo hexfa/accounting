@@ -44,7 +44,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 
 
-
         if (deviceType == DeviceScreenType.desktop) {
           return Scaffold(
             body: Row(
