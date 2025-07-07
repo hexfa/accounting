@@ -23,7 +23,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     CustomersPage(),
   ];
 
-
   @override
   void initState() {
     super.initState();
