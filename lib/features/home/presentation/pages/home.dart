@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     child: AppMenu(),
                   ),
                 ),
+
                 Expanded(
                   child: Column(
                     children: [
