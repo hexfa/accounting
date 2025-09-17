@@ -7,8 +7,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GlobalConfig.initConfig();
   runApp(AppWidget());
-
-
+  
 }
 
 
