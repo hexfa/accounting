@@ -8,7 +8,8 @@ void main() async {
   await GlobalConfig.initConfig();
   runApp(AppWidget());
 
-  
+
+
 }
 
 
